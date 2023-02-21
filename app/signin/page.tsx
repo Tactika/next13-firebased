@@ -2,6 +2,7 @@
 import React, { SyntheticEvent } from "react";
 import signIn from "@/firebase/auth/signin";
 import { useRouter } from 'next/navigation'
+import { format } from "path";
 
 function Page() {
     const [email, setEmail] = React.useState('')
@@ -27,12 +28,12 @@ function Page() {
             <form onSubmit={handleForm} className="form">
                 <label htmlFor="email">
                     <p>Email</p>
-                    <input onChange={(e) => setEmail(e.target.value)} required type="email" name="email" id="email" placeholder="example@mail.com" />
+                    <input onChange={(e) => setEmail(e.target.value)} required type="email" name="email" id="email" placeholder="example@mail.com" autoComplete="current-email" />
                 </label>
                 <label htmlFor="password">
                     <p>Password</p>
-                    <input onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" />
-                </label>
+                    <input onChange={(e) => setPassword(e.target.value)} required type="password" name="password" id="password" placeholder="password" autoComplete="current-password"/>
+                </label>    
                 <button type="submit">Sign In</button>
             </form>
         </div>
